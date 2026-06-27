@@ -2,12 +2,44 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>orbit-ems</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Orbit-ems</title>
+    <!-- PWA Settings -->
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" type="image/svg+xml" href="/pwa-icon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#111111" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="OrbitEMS" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta property="og:url" content="https://orbit-ems.vercel.app/og.png" />
+    <meta property="og:description" content="Orbit EMS - Employee Management System" />
+    <meta property="og:title" content="Orbit EMS" />
+    <meta property="og:site_name" content="Orbit EMS" />
+    <meta property="og:image" content="https://orbit-ems.vercel.app/og.png" />
+    <meta property="description" content="Orbit EMS - Employee Management System" />
+    <meta property="twitter:description" content="Orbit EMS - Employee Management System" />
+    <meta property="twitter:image" content="https://orbit-ems.vercel.app/og.png" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="Orbit EMS" />
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then((reg) => {
+              console.log('⚡ PWA Service Worker registered on scope:', reg.scope);
+            })
+            .catch((err) => {
+              console.error('❌ Service Worker registration failed:', err);
+            });
+        });
+      }
+    </script>
   </body>
 </html>
+
