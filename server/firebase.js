@@ -4,10 +4,8 @@ import fs from 'fs';
 import path from 'path';
 import os from 'os';
 
-const FIREBASE_CLI_CLIENT_ID =
-  'REDACTED_CLIENT_ID';
-/* From firebase-tools source: "In this context, the client secret is obviously not treated as a secret" */
-const FIREBASE_CLI_CLIENT_SECRET = process.env.FIREBASE_CLI_CLIENT_SECRET || 'REDACTED_SECRET';
+const FIREBASE_CLI_CLIENT_ID = process.env.FIREBASE_CLI_CLIENT_ID;
+const FIREBASE_CLI_CLIENT_SECRET = process.env.FIREBASE_CLI_CLIENT_SECRET;
 const ADC_PATH = path.join(os.tmpdir(), 'orbit-ems-adc.json');
 
 let firestoreInstance;

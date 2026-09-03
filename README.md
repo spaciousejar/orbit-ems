@@ -54,6 +54,10 @@ VITE_FIREBASE_FIRESTORE_DATABASE_ID=
 # Server
 GEMINI_API_KEY=
 PORT=3001
+
+# Firebase CLI (for local ADC-based auth)
+FIREBASE_CLI_CLIENT_ID=
+FIREBASE_CLI_CLIENT_SECRET=
 ```
 
 ## Installation
@@ -108,8 +112,14 @@ bun run start    # Backend on http://localhost:3001
 | `/api/timesheets` | Timesheet management |
 | `/api/notifications` | Notifications |
 | `/api/settings` | System settings |
-| `/api/chat` | Gemini AI chat (streaming) |
-| `/api/fast-chat` | Gemini AI quick responses |
+| `/api/departments` | Department management |
+| `/api/announcements` | Company announcements |
+| `/api/email` | Email sending |
+| `/api/audit` | Audit logging |
+| `/api/checklist` | Onboarding checklists |
+| `/api/reminders` | Reminders |
+| `/api/chat` | Gemini AI chat (streaming, defined inline in `server/app.js`) |
+| `/api/fast-chat` | Gemini AI quick responses (defined inline in `server/app.js`) |
 
 ## Deployment
 
@@ -137,7 +147,8 @@ orbit-ems/
 │   ├── lib/            # Utilities and helpers
 │   └── types/          # TypeScript definitions
 ├── server/
-│   ├── routes/         # Express API routes
+│   ├── routes/         # Express API routes (users, attendance, etc.)
+│   ├── app.js          # Express app; chat & fast-chat defined inline
 │   └── firebase.js     # Server-side Firebase config
 ├── scripts/            # Build scripts
 └── public/             # Static assets
